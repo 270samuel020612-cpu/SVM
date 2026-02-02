@@ -9,7 +9,7 @@
   body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg, #f58d42 0%, #a15b2a 60%, #1f1613 100%);
+    background: linear-gradient(132deg, #bf8811 0%, #a15b2a 60%, #1f1613 100%);
     color: #f5f1ed;
   }
 
@@ -171,7 +171,7 @@
 
 <body>
 
-<a href="Music.html" class="back">← Back to Music</a>
+<a href="index.html" class="back">← Back to Home</a>
 
 <!-- Album Header -->
 <section class="album-header">
@@ -179,134 +179,92 @@
 
   <div class="album-info">
     <div class="countdown-container">
-  <p class="countdown-label">Available In June, 1, 2026</p>
-  <div id="countdown">
-    <span id="days">00</span>d :
-    <span id="hours">00</span>h :
-    <span id="minutes">00</span>m :
-    <span id="seconds">00</span>s
-  </div>
-</div>
-    <small>Album</small>
-    <h1>Seasons</h1>
+    <small>Concert</small>
+    <h1>Seasons Tour</h1>
     <p>
       An era of growth, clarity, seasons and rebirth.
       A journey through change, emotion, and becoming.
     </p>
     <div class="meta">
-      <strong>SVM</strong> • 9 songs • 2 min
+      <strong>SVM</strong> "Duh, The Album haven't released so no concert!"
     </div>
     
   </div>
 </section>
-
-<!-- Controls -->
-<div class="controls">
-  <div class="play">▶</div>
-  <div class="icon">♡</div>
-  <div class="icon">⋯</div>
-</div>
 
 <!-- Tracklist -->
 <section class="tracklist">
 
   <div class="track-header">
     <span>#</span>
-    <span>Title</span>
-    <span>Album</span>
-    <span class="duration">⏱</span>
+    <span>Location</span>
+    <span>Date</span>
+    <span class="duration">Time</span>
   </div>
 
   <div class="track">
     <span>1</span>
-    <span>Track 1</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
   <div class="track">
     <span>2</span>
-    <span>Track 2</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
   <div class="track">
     <span>3</span>
-    <span>Track 3</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
   <div class="track">
     <span>4</span>
-    <span>Track 4</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
   <div class="track">
     <span>5</span>
-    <span>Track 5</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
     <div class="track">
     <span>6</span>
-    <span>Track 6</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
     <div class="track">
     <span>7</span>
-    <span>Track 7</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
   <div class="track">
     <span>8</span>
-    <span>clarity</span>
-    <span>Seasons</span>
-    <span class="duration">2:49</span>
+    <span>...</span>
+    <span>...</span>
+    <span class="duration">00:00</span>
   </div>
 
   <div class="track">
     <span>9</span>
-    <span>Track 9</span>
-    <span>Seasons</span>
+    <span>...</span>
+    <span>...</span>
     <span class="duration">00:00</span>
   </div>
 
 </section>
-
-<script>
-  function updateCountdown() {
-    // Target time: June 1, 23:59 WIB (UTC+7)
-    const targetDate = new Date("2026-06-01T23:59:00+07:00").getTime();
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance <= 0) {
-      document.getElementById("countdown").innerHTML = "It’s time.";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").textContent = days.toString().padStart(2, "0");
-    document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-    document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-    document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
 </body>
 </html>
