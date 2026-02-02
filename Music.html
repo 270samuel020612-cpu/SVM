@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Music – SVM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(132deg, #f7e9dc, #d8bfa9);
+    color: #3b2f2f;
+    overflow: hidden;
+  }
+
+  /* Search bar */
+  .search-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 420px;
+    z-index: 10;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(8px);
+    color: #3b2f2f;
+  }
+
+  /* Horizontal snap container */
+  .albums {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .albums::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Album section */
+  .album {
+    min-width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 80px 60px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .album img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 26px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.25);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .album-info {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .album-info h2 {
+    font-size: 56px;
+    margin: 0;
+    color: #3b2f2f;
+  }
+
+  .album-info p {
+    margin-top: 18px;
+    font-size: 18px;
+    max-width: 420px;
+    line-height: 1.7;
+    color: #5a4636;
+  }
+
+  .countdown-container {
+  margin-top: 24px;
+  text-align: center;
+  font-family: inherit;
+}
+
+  .countdown-label {
+  opacity: 0.7;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+  #countdown {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+
+  /* Back button */
+  .back {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    text-decoration: none;
+    color: #3b2f2f;
+    opacity: 0.75;
+    z-index: 10;
+  }
+
+  .back:hover {
+    opacity: 1;
+  }
+
+  /* Kill link styles */
+  a, a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Search -->
+<div class="search-bar">
+  <input type="text" placeholder="Search album…" oninput="filterAlbums(this.value)">
+</div>
+
+<!-- Albums -->
+<div class="albums" id="albums">
+
+  <a href="Seasons.html" class="album" data-name="seasons">
+    <img src="Seasons Cover.jpeg">
+    <div class="album-info">
+      <h2>Seasons</h2>
+      <p>An era of growth, clarity, and rebirth. Every phase has its sound.</p>
+    </div>
+    <div class="countdown-container">
+  <p class="countdown-label">Released In June, 1, 2026</p>
+  <div id="countdown">
+    <span id="days">00</span>d :
+    <span id="hours">00</span>h :
+    <span id="minutes">00</span>m :
+    <span id="seconds">00</span>s
+  </div>
+</div>
+
+  </a>
+
+  <a href="Reverie.html" class="album" data-name="reverie">
+    <img src="https://commons.wikimedia.org/wiki/File:Image_not_available.png">
+    <div class="album-info">
+      <h2>Album 2</h2>
+      <p>A statement of what I always dreamed to be.</p>
+    </div>
+  </a>
+
+  <a href="Oath.html" class="album" data-name="oath">
+    <img src="https://commons.wikimedia.org/wiki/File:Image_not_available.png">
+    <div class="album-info">
+      <h2>Album 3</h2>
+      <p>A promise forged through loyalty, yet it will be broken someday.</p>
+    </div>
+  </a>
+
+  <a href="DontMakeMeLive.html" class="album" data-name="dont make me live">
+    <img src="https://commons.wikimedia.org/wiki/File:Image_not_available.png">
+    <div class="album-info">
+      <h2>Album 4</h2>
+      <p>A need to live outside the world, even tho its impossible.</p>
+    </div>
+  </a>
+
+  <a href="NoMansWar.html" class="album" data-name="no man's war">
+    <img src="https://commons.wikimedia.org/wiki/File:Image_not_available.png">
+    <div class="album-info">
+      <h2>Album 5</h2>
+      <p>A battlefield of identity, ego, and survival.</p>
+    </div>
+  </a>
+
+  <a href="Eternity.html" class="album" data-name="eternity">
+    <img src="https://commons.wikimedia.org/wiki/File:Image_not_available.png">
+    <div class="album-info">
+      <h2>Album 6</h2>
+      <p>Love, balance, and time stretching beyond moments.</p>
+    </div>
+  </a>
+
+</div>
+
+<a href="Home.html" class="back">← Back to Home</a>
+
+<!-- Search Logic -->
+<script>
+function filterAlbums(query) {
+  query = query.toLowerCase();
+
+  const albums = document.querySelectorAll('.album');
+  const tracks = document.querySelectorAll('#trackIndex div');
+
+  let foundTrack = null;
+
+  // First: check tracks
+  tracks.forEach(track => {
+    if (track.dataset.track.includes(query)) {
+      foundTrack = track.dataset.link;
+    }
+  });
+
+  // If track found → go to album page
+  if (foundTrack && query.length > 1) {
+    window.location.href = foundTrack;
+    return;
+  }
+
+  // Otherwise filter albums
+  albums.forEach(album => {
+    album.style.display =
+      album.dataset.name.includes(query) ? 'flex' : 'none';
+  });
+}
+</script>
+
+<script>
+  function updateCountdown() {
+    // Target time: June 1, 23:59 WIB (UTC+7)
+    const targetDate = new Date("2026-06-01T23:59:00+07:00").getTime();
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("countdown").innerHTML = "It’s time.";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, "0");
+    document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>

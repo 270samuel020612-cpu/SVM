@@ -1,0 +1,20 @@
+.whatsapp-btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #25D366, #128C7E);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+  z-index: 2; /* makes sure it’s above particles */
+  transition: all 0.3s ease;
+  animation: float 5s ease-in-out infinite;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+}

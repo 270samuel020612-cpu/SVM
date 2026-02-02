@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SVM | Contact</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f7e9dc, #d8bfa9);
+      color: #3c2f2f;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* 🪄 Universal button hover float */
+button,
+a.button,
+.email-btn,
+.whatsapp-btn {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+/* When cursor touches */
+button:hover,
+a.button:hover,
+.email-btn:hover,
+.whatsapp-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(166, 116, 73, 0.3);
+      width: 90%;
+      max-width: 480px;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.2em;
+      color: #5b3b2c;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    p {
+      font-size: 1em;
+      color: #5b3b2c;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      animation: fadeInUp 2s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeInUp 2.3s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+     /* Back button (soft beige gradient) */
+.back-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #d4b996, #cbb58d);
+  color: #4b3f2f;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(203, 181, 141, 0.4);
+  transition: all 0.3s ease;
+  animation: float 5s ease-in-out infinite;
+  z-index: 2;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(203, 181, 141, 0.7);
+}
+
+    .email-btn, .whatsapp-btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 30px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(166, 116, 73, 0.3);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    /* Email button (soft purple-brown gradient) */
+    .email-btn {
+      background: linear-gradient(135deg, #c7a17a, #a67449);
+    }
+
+    .email-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(166, 116, 73, 0.5);
+    }
+
+    /* WhatsApp button (greenish-brown gradient) */
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #c0b283, #a68a64);
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(192, 178, 131, 0.5);
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.9em;
+      color: #6e4e35;
+      opacity: 0;
+      animation: fadeInUp 2.6s ease forwards;
+      animation-delay: 0.9s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Floating light circles */
+    .floating-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      animation: float 6s ease-in-out infinite;
+      filter: blur(2px);
+      z-index: 0;
+    }
+
+    .circle1 { width: 120px; height: 120px; top: 15%; left: 10%; }
+    .circle2 { width: 180px; height: 180px; bottom: 10%; right: 15%; animation-delay: 1.5s; }
+    .circle3 { width: 90px; height: 90px; top: 60%; left: 30%; animation-delay: 2s; }
+  </style>
+</head>
+<body>
+  <div class="floating-circle circle1"></div>
+  <div class="floating-circle circle2"></div>
+  <div class="floating-circle circle3"></div>
+
+  <div class="container">
+    <h1>Contact SVM</h1>
+    <p>Wanna stay in touch?  
+    Choose your way to connect with me ↓</p>
+
+    <div class="contact-buttons">
+      <a href="email.html" class="email-btn">Send Me Email ✉️</a>
+      <a href="https://wa.me/6285231001221?text=Hey%20SVM!%20I%20would%20like%20to%20join%20your%20community"
+         target="_blank"
+         class="whatsapp-btn">
+        Chat on WhatsApp 💬
+      </a>
+      <a href="Home.html" class="back-btn">← Back to Home</a>
+    </div>
+
+    <footer>One Step Ahead!</footer>
+  </div>
+</body>
+</html>
