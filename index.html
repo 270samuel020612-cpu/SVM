@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="Seasons Cover.jpeg">
+  <title>SVM | Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #f7e9dc, #d8bfa9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #3c2f2f;
+      overflow: hidden;
+    }
+    
+    /* 🪄 Universal button hover float */
+button,
+a.button,
+.email-btn,
+.whatsapp-btn {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+/* When cursor touches */
+button:hover,
+a.button:hover,
+.email-btn:hover,
+.whatsapp-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    p {
+      font-size: 1.1em;
+      opacity: 0;
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 30px;
+      animation: fadeInUp 2s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 2s ease forwards;
+      animation-delay: 1s;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #c7a17a, #a67449);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(166, 116, 73, 0.3);
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(166, 116, 73, 0.4);
+    }
+
+    .floating-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      animation: float 6s ease-in-out infinite;
+      filter: blur(2px);
+    }
+    .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+.peek-photo {
+  position: absolute;
+  top: -250%;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  width: 300px; /* you can resize if you want */
+  border-radius: 10%;
+  object-fit: cover;
+  z-index: 10;
+  animation: peekFloat 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.25));
+}
+
+/* lil floating animation */
+@keyframes peekFloat {
+  0%, 100% {
+    transform: translateX(-50%) rotate(180deg) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) rotate(180deg) translateY(10px);
+  }
+}
+
+.hero-text {
+  text-align: center;
+  color: #5a4633;
+  animation: fadeFloat 2s ease-out forwards;
+}
+
+/* Fade & Float Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeFloat {
+  0% { opacity: 0; transform: translateY(20px); }
+  50% { opacity: 1; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+    .circle1 { width: 120px; height: 120px; top: 15%; left: 10%; }
+    .circle2 { width: 180px; height: 180px; bottom: 10%; right: 15%; animation-delay: 1.5s; }
+    .circle3 { width: 90px; height: 90px; top: 60%; left: 30%; animation-delay: 2s; }
+
+@keyframes fadeFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply to title and buttons */
+h1 {
+  animation: fadeFloat 2s ease-out forwards, float 6s ease-in-out infinite 2s;
+  position: relative;
+  z-index: 2;
+}
+
+.button {
+  animation: fadeFloat 2s ease-out forwards, float 5s ease-in-out infinite 2s;
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating motion (loop) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="floating-circle circle1"></div>
+  <div class="floating-circle circle2"></div>
+  <div class="floating-circle circle3"></div>
+  <!-- Place this inside your <body> (somewhere near the top of your home page content) -->
+  <div class="hero">
+     <img src="SVMPic.png" alt="SVM upside down" class="peek-photo">
+  <div class="hero-text">
+     <h2>SVM</h2> </div> 
+  </div>
+
+  <h1>Hi, Welcome!</h1>
+  <p>Hey there 🌿 I’m SVM — singer, songwriter, and animator.  
+  Dive into my creations and feel the colors of each season 🎵</p>
+
+  <div class="button-container">
+    <a href="home.html"><button class="button">Home</button></a>
+    <a href="contact.html"><button class="button">Contact</button></a>
+    <a href="Music.html"><button class="button">Music</button></a>
+  </div>
+</body>
+</html>
